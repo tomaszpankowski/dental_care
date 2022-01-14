@@ -10,7 +10,7 @@
     #{$paramA}: -webkit-calc( #{$baseA} - #{$valA} );
 }
 
-@mixin set-background($imgA:"",$imgURL:0,$positionA:"top left",$sizeA:"cover",$attachA:"fixed"){
+@mixin set-background($imgA:"",$imgURL:0,$positionA:"top left",$sizeA:"cover",$attachA:"scroll"){
     background:{
         attachment:#{$attachA};
         @if($imgURL==1){
@@ -25,7 +25,7 @@
     }
 }
 
-@mixin set-bg-series($classNameA,$imgArrayA:'',$imgURL:0,$positionA:"top left",$sizeA:"cover",$attachA:"fixed"){
+@mixin set-bg-series($classNameA,$imgArrayA:'',$imgURL:0,$positionA:"top left",$sizeA:"cover",$attachA:"scroll"){
     @if($classNameA != ""){
         @for $i from 1 through length($imgArrayA){
             .#{$classNameA}-s#{$i} {
@@ -35,7 +35,7 @@
     }
 }
 
-@mixin aoa-bg-series($classArrayA:'',$imgAoA:'',$imgURL:0,$positionA:"top left",$sizeA:"cover",$attachA:"fixed"){
+@mixin aoa-bg-series($classArrayA:'',$imgAoA:'',$imgURL:0,$positionA:"top left",$sizeA:"cover",$attachA:"scroll"){
     @if (length($classArrayA) == length($imgAoA)){
         @for $i from 1 through length($classArrayA){
             @include set-bg-series(nth($classArrayA,$i),nth($imgAoA,$i),$imgURL,$positionA,$sizeA,$attachA);

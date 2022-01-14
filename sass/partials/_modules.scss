@@ -1,0 +1,74 @@
+.bg{
+    &-blue{
+        background-color: $color__blue;
+    }
+}
+.contact{
+    &-s1,&-s3{
+        background-color: #aaa !important;
+        background-blend-mode: multiply;
+    }
+}
+.dentists{
+    &-s1{
+        background-color: #aaa !important;
+        background-blend-mode: multiply;
+    }
+}
+.index{
+    &-s1{
+        background-color: #aaa !important;
+        background-blend-mode: multiply;
+    }
+}
+.login{
+    &-s1{
+        background-color: #aaa !important;
+        background-blend-mode: multiply;
+    }
+}
+.treatments{
+    &-s1{
+        background-color: #aaa !important;
+        background-blend-mode: multiply;
+    }
+    &-s3{
+        background-position: center !important;
+    }
+    &-s4{
+        background-position: center !important;
+    }
+    &-s5{
+        background-position: center !important;
+    }
+}
+footer{
+    @include set-background($bg__footer-img);
+}
+
+@media all and (max-width:767px){
+    .treatments{
+        &-s3,&-s4,&-s5{
+            & *{
+                color: #fff !important;
+            }
+            background-color: #aaa !important;
+            background-blend-mode: multiply;
+            text-shadow: $text-shadow;
+        }
+        &-s4{
+            background-position: top right!important;
+        }
+    }
+}
+
+@media all and (max-width:767px){
+    .navbar{
+        &-nav{
+            background-color: #555 !important;
+            border: 1px solid #888;
+            opacity: 0.8;
+            padding-right: 10px;
+        }
+    }
+}
