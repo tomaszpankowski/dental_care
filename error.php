@@ -1,3 +1,15 @@
+<?php
+
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
+if(!isset($_SESSION["errorMessage"])){
+    $_SESSION["errorMessage"] = "Unfortunately your message was not send due to technical ";
+    $_SESSION["errorMessage"] .= "problems. Please try again later or contact with us by phone.";
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -8,9 +20,9 @@
         <link rel="stylesheet" type="text/css" href="css/styles.css"/>
         <link rel="stylesheet" type="text/css" href="css/font-awesome.min.css"/>
         <link rel="icon" href="img/favicon.png"/>
-        <title>Dental care | Home</title>
+        <title>Dentist | Message sent</title>
     </head>
-    <body class="minh-100vh bg-secondary">
+    <body class="minh-100vh">
         <header class="position-absolute w-100">
             <nav class="navbar navbar-dark navbar-expand-md bg-transparent">
                 <a href="index.html" class="navbar-brand ms-3">
@@ -42,26 +54,22 @@
                 </div>
             </nav>
         </header>
-        <main>
-            <section class="index-s1 container-fluid d-flex minh-100vh align-items-center py-5">
-                <div class="row mx-0 w-100 mt-sm-5 mt-md-0">
-                    <div class="col-12 col-sm-6 col-md-12 col-lg-6 minh-25vh"></div>
-                    <div class="col-12 col-sm-6 col-md-12 col-lg-6 minh-50vh d-flex align-items-center">
-                        <div class="w-100 text-center text-sm-start text-md-center text-lg-start text-shadow">
-                            <h5 class="text-white text-uppercase">
-                                Dental care you can trust
-                            </h5>
-                            <img src="img/navbar_logo.png" class="img-fluid" alt="logo"/>
-                            <p class="lead text-white my-2">
-                                Our Dental Clinic’s experienced and knowledgeable staff provide quality dental 
-                                care. Schedule a consultation and let us put a smile on your face.
-                            </p>
-                            <a href="treatments.html" class="btn btn-outline-light rounded-pill">See more</a>
-                        </div>
+        <section class="login-s1 container-fluid d-flex align-items-center bg-secondary py-5 minh-100vh">
+            <div class="row w-100">
+                <div class="col-10 col-sm-8 col-md-6 offset-1 offset-sm-2 offset-md-3 text-center">
+                    <div class="alert alert-danger">
+                        <h3 class="text-center font-header">Error!</h3>
+                        <p class="initialism">
+                            <?php
+                                echo $_SESSION["errorMessage"];
+                            ?>
+                        </p>                  
+                        <a href="contact.html" 
+                            class="btn btn-danger">Back</a>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </section>
         <footer class="container-fluid d-flex text-dark align-items-center bg-dark text-white pt-3 opacity-9 border-top">
             <div class="row mx-0 w-100 small opacity-9">
                 <div class="col-12 col-md-6 col-lg-5 text-center text-md-start">
@@ -105,3 +113,10 @@
         <script src="js/bootstrap.bundle.min.js"></script>
     </body>
 </html>
+<?php $_SESSION["errorMessage"]=null ?>
+
+        
+  
+        
+
+
